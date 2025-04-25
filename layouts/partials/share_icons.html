@@ -1,0 +1,11 @@
+{{ if .Params.share }}
+<div class="share-icons">
+    <span class="share-label">Share:</span>
+    <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink }}" rel="me" aria-label="Share on Twitter">
+        <span class="share-icon">Twitter</span>
+    </a>
+    <a href="https://t.me/share/url?url={{ .Permalink }}&text={{ .Title }}" rel="me" aria-label="Share on Telegram">
+        <span class="share-icon">Telegram</span>
+    </a>
+</div>
+{{ end }} 

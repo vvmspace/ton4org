@@ -1,0 +1,34 @@
+[build]
+command = "hugo --gc --minify --cleanDestinationDir"
+publish = "public"
+
+[build.environment]
+HUGO_VERSION = "0.125.7"
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+NODE_VERSION = "18"
+
+[context.production.environment]
+HUGO_ENV = "production"
+
+[context.deploy-preview]
+command = "hugo --gc --minify --cleanDestinationDir --baseURL $DEPLOY_PRIME_URL"
+
+[context.branch-deploy]
+command = "hugo --gc --minify --cleanDestinationDir --baseURL $DEPLOY_PRIME_URL"
+
+[[headers]]
+for = "/*"
+[headers.values]
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Content-Security-Policy = '''
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://changenow.io;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data: https://changenow.io;
+  frame-src 'self' https://changenow.io;
+  connect-src 'self' https://changenow.io;
+'''

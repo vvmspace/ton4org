@@ -1,0 +1,28 @@
+{{- $defaultFrom := "xmr" -}}
+{{- $defaultTo := "usdttrc20" -}}
+{{- $from := .Params.exchange_from | default $defaultFrom -}}
+{{- $to := .Params.exchange_to | default $defaultTo -}}
+{{- $amount := .Params.exchange_amount | default "1" -}}
+{{- $amountFiat := .Params.exchange_amount_fiat | default "1500" -}}
+
+<!-- Debug information -->
+{{- if .Site.Params.debug }}
+<div style="display: none;">
+    Debug info:
+    From: {{ $from }}
+    To: {{ $to }}
+    Amount: {{ $amount }}
+    Amount Fiat: {{ $amountFiat }}
+</div>
+{{- end }}
+
+<div class="exchange-widget-container" style="width: 100%; max-width: 100%; margin: 1rem 0;">
+    <iframe 
+        id='iframe-widget' 
+        src='https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount={{ $amount }}&amountFiat={{ $amountFiat }}&backgroundColor=FFFFFF&darkMode=false&from={{ $from }}&fromFiat=usd&horizontal=false&isFiat&lang=en-US&link_id=204159e509c401&locales=true&logo=true&primaryColor=00C26F&to={{ $to }}&toFiat=usd&toTheMoon=true' 
+        style="height: 356px; width: 100%; border: none; max-width: 100%;"
+        title="ChangeNOW Exchange Widget">
+    </iframe>
+    <script defer type='text/javascript' src='https://changenow.io/embeds/exchange-widget/v2/stepper-connector.js'></script>
+    <script src="/js/widget-test.js"></script>
+</div> 

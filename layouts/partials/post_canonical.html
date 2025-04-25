@@ -1,0 +1,6 @@
+{{ if .Params.canonicalURL }}
+<div class="canonical-url">
+    <span>Original URL:</span>
+    <a href="{{ .Params.canonicalURL }}" rel="canonical">{{ .Params.canonicalURL }}</a>
+</div>
+{{ end }} 
