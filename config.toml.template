@@ -13,7 +13,7 @@ enableGitInfo = true
 [security.headers]
 Content-Security-Policy = '''
 default-src 'self';
-script-src 'self' 'unsafe-inline' 'unsafe-eval' https://changenow.io https://www.googletagmanager.com;
+script-src 'self' 'unsafe-inline' 'unsafe-eval' https://changenow.io https://www.googletagmanager.com https://www.google-analytics.com;
 style-src 'self' 'unsafe-inline';
 img-src 'self' data: https://changenow.io;
 frame-src 'self' https://changenow.io;
